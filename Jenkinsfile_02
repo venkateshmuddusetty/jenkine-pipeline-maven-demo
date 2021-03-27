@@ -2,7 +2,7 @@
 
 pipeline {
     environment {
-        // JAVA_TOOL_OPTIONS = "-Duser.home=/var/jenkins_home"
+        JAVA_TOOL_OPTIONS = "-Duser.home=/var/jenkins_home"
     }
     agent {
         docker {
