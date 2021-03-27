@@ -1,14 +1,14 @@
 #!groovy
 
 pipeline {
-    // environment {
-    //     // JAVA_TOOL_OPTIONS = "-Duser.home=/var/jenkins_home"
-    // }
+    environment {
+        // JAVA_TOOL_OPTIONS = "-Duser.home=/var/jenkins_home"
+    }
     agent {
         docker {
             image "maven:3.6.0-jdk-13"
             // label "docker"
-            // args "-v /tmp/maven:/var/jenkins_home/.m2 -e MAVEN_CONFIG=/var/jenkins_home/.m2"
+            args "-v /tmp/maven:/var/jenkins_home/.m2 -e MAVEN_CONFIG=/var/jenkins_home/.m2"
         }
     }
 
