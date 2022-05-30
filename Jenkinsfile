@@ -8,10 +8,9 @@ pipeline {
     
     
         stages {
-          stage( 'Gitcheckout') {
+          stage( 'Unit_test') {
                 steps {
-                 //   checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'test-tken-v', url: '']]])
-                    echo "test"
+                 sh 'mvn test'
                 }
             }  
             stage( 'Build') {
