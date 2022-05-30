@@ -4,5 +4,5 @@ RUN useradd -m -u 1000 -s /bin/bash jenkins
 
 # RUN yum install -y openssh-clients
 
-EXPOSE 8090
+EXPOSE 8092
 
