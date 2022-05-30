@@ -6,4 +6,3 @@ RUN useradd -m -u 1000 -s /bin/bash jenkins
 
 EXPOSE 8090
 
-CMD ['java -jar hello.jar']
