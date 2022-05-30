@@ -32,13 +32,7 @@ pipeline {
                     }
                 }
             }
-                    stage('SonarQube analysis') {
-                steps {
-                    withSonarQubeEnv('sonarqube-9.0.1') {
-                    sh "mvn clean install sonar:sonar"
-    }
-        }
-        }
+              
        
             stage( 'Build docker image') {
                 steps {
