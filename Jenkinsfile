@@ -17,14 +17,14 @@ pipeline {
                 steps {
                     script {
                         datas = readYaml (file : "$WORKSPACE/config.yml")
-                        echo "build type is: ${datas.Build_tool}"
+                        echo "build type is: ${datas.Build_type}"
                         
                         
-                        if( "${datas.Build_tool}" == "maven" )
+                        if( "${datas.Build_type}" == "maven" )
                         {
                         sh 'mvn clean install -DskipTests=True'
                         }
-                        else( "${datas.Build_tool}" == "gradle" ) 
+                        else( "${datas.Build_type}" == "gradle" ) 
                         {    
                         sh 'gradle build'
                         }
