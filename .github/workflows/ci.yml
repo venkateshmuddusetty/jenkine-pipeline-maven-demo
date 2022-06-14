@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -23,4 +23,28 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean install -DskipTests=True
+    - name: sonar
+      run: |
+        mvn clean verify sonar:sonar -Dsonar.projectKey=test123 -Dsonar.host.url=http://20.115.91.217:9000 -Dsonar.login=66e3aa607c2274a151cd7bd6ce3f3048a2b2a639
+    - name: Build & push Docker imag
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: github_actions
+        tags: latest
+        registry: hidpdeveastusazcrvvd.azurecr.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
